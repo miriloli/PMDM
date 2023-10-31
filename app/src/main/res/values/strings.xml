@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Mi_primera_App</string>
+    <string name="Conexion">CONEXIÓN</string>
+    <string name="Sensor">SENSOR</string>
+    <string name="Guardar">GUARDAR</string>
+    <string name="Cargar">CARGAR</string>
+
+</resources>
