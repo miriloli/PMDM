@@ -7,6 +7,7 @@
     tools:context=".MainActivity">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="409dp"
         android:layout_height="0dp"
         android:orientation="vertical"
@@ -25,7 +26,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="onClick"
-                android:text="@string/Conexion" />
+                android:text="@string/Conexion"
+                tools:ignore="ButtonStyle" />
 
             <Button
                 android:id="@+id/botonSensor"
@@ -33,19 +35,21 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="onClick"
-                android:text="@string/Sensor" />
+                android:text="@string/Sensor"
+                tools:ignore="ButtonStyle" />
 
         </LinearLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
             android:layout_weight="1">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtCentral"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                tools:ignore="SpeakableTextPresentCheck" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -60,7 +64,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="onClick"
-                android:text="@string/Guardar" />
+                android:text="@string/Guardar"
+                tools:ignore="ButtonStyle" />
 
             <Button
                 android:id="@+id/botonCargar"
@@ -68,7 +73,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="onClick"
-                android:text="@string/Cargar" />
+                android:text="@string/Cargar"
+                tools:ignore="ButtonStyle"/>
         </LinearLayout>
 
     </LinearLayout>
@@ -77,10 +83,9 @@
         android:id="@+id/webView"
         android:layout_width="409dp"
         android:layout_height="571dp"
+        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="159dp"
-        tools:ignore="MissingConstraints" />
-
+        tools:layout_editor_absoluteY="158dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

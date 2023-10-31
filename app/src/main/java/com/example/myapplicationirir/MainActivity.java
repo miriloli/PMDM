@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         WebView webView = findViewById(R.id.webView);
-        webView.loadUrl("www.google.com");
+        webView.loadUrl("http://www.google.com");
 
     }
     public void comprobarConexion() {
