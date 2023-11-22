@@ -11,19 +11,23 @@ import android.net.ConnectivityManager;
 import android.net.Network;
 import android.view.View;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        WebView webView = findViewById(R.id.webView);
-        webView.loadUrl("http://www.google.com");
+        WebView myWebView = findViewById(R.id.myWebView);
+        myWebView.setWebViewClient(new WebViewClient());
+        myWebView.loadUrl("http://www.google.es");
+
 
     }
+
     public void comprobarConexion() {
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         Network red = cm.getActiveNetwork();
@@ -42,10 +46,12 @@ public class MainActivity extends AppCompatActivity {
         Sensor mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         boolean sensorExist = mAccelerometer != null;
         if (sensorExist) {
-            Toast.makeText(this, "Se ha encontrado un acelerómetro", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Se ha encontrado un acelerómetro",
+                    Toast.LENGTH_LONG).show();
 
         } else {
-            Toast.makeText(this, "No se ha encontrado ningún sensor del tipo acelerómetro", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "No se ha encontrado ningún sensor del tipo acelerómetro",
+                    Toast.LENGTH_LONG).show();
         }
     }
 
@@ -60,26 +66,22 @@ public class MainActivity extends AppCompatActivity {
     public void cargarTextoDeSharedPreferences() {
         SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
         String texto = sharedPref.getString("textoGuardado", "");
-
+        EditText txtCentral = findViewById(R.id.txtCentral);
+        txtCentral.setText(texto);
 
     }
-
-
 
     public void onClick(View view) {
         if (R.id.botonConexion == view.getId()) {
 
             comprobarConexion();
-        }
-        else if (R.id.botonSensor == view.getId()) {
+        } else if (R.id.botonSensor == view.getId()) {
 
             comprobarSensor();
-        }
-        else if (R.id.botonGuardar == view.getId()) {
+        } else if (R.id.botonGuardar == view.getId()) {
 
             guardarTextoEnSharedPreferences();
-        }
-        else if (R.id.botonCargar == view.getId()) {
+        } else if (R.id.botonCargar == view.getId()) {
 
             cargarTextoDeSharedPreferences();
         }
